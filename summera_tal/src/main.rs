@@ -23,6 +23,35 @@ fn main() {
     // ok() returns an Option, so we unwrap it to get the value inside.
 
     /* add code here ... */
+    /*take out the first line and check how many numbers there are */
+    let totalnumbers :i32 = lines[0].parse().unwrap();
+    let halfnumbers :i32 = if totalnumbers % 2 == 1 {totalnumbers/2} else {(totalnumbers/2)+1};
+
+    let mut number_vector : Vec<i32> = vec![0;halfnumbers as usize];
+
+    let numberlist :Vec<i32> = lines[1]
+        .split_whitespace()
+        .map(|x| x.parse::<i32>().unwrap())
+        .collect();
+
+
+    /*control if there is a lower number in the vector and switch with the number*/
+    for &numbers in &numberlist {
+        for control_number in &mut number_vector {
+            if numbers > *control_number {
+                *control_number = numbers;
+                break;
+            }
+        }
+    }
+
+    let mut finalnumber: i32 = 0;
+
+    for summation in number_vector {
+        finalnumber += summation;
+    }
+
+    print!{"{}", finalnumber};
 
     eprintln!("Kattis skips this comment!");
     //println!("Print to standard output.");
