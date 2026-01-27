@@ -25,7 +25,7 @@ fn main() {
     /* add code here ... */
     /*take out the first line and check how many numbers there are */
     let totalnumbers :i32 = lines[0].parse().unwrap();
-    let halfnumbers :i32 = if totalnumbers % 2 == 1 {totalnumbers/2} else {(totalnumbers/2)+1};
+    let halfnumbers :i32 = (totalnumbers +1)/2;
 
     let mut number_vector : Vec<i32> = vec![0;halfnumbers as usize];
 
