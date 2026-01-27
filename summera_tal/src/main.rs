@@ -29,12 +29,14 @@ fn main() {
 
     let mut number_vector : Vec<i32> = vec![0;halfnumbers as usize];
 
-    let numberlist :Vec<i32> = lines[1]
+    let mut numberlist :Vec<i32> = lines[1]
         .split_whitespace()
         .map(|x| x.parse::<i32>().unwrap())
         .collect();
 
-
+    numberlist.sort();
+    numberlist.reverse();
+    
     /*control if there is a lower number in the vector and switch with the number*/
     for &numbers in &numberlist {
         for control_number in &mut number_vector {
