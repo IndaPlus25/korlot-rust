@@ -36,7 +36,7 @@ fn main() {
     let mut lines_marker: i32 = 2;
 
     /*code for iterate through names, and controlling both lists of spoken name and surname are unique */
-    while lines_marker < number_of_names {
+    while lines_marker <= number_of_names {
         full_name = lines[lines_marker as usize].clone() + " " + &lines[lines_marker as usize + number_of_names as usize].clone();
         if !full_names.contains(&full_name) {
             full_names.push(full_name);
