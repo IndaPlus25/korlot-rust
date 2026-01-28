@@ -8,7 +8,7 @@
 
 use std::io;
 use std::io::prelude::*;
-
+use std::collections::HashSet;
 /// Kattis calls main function to run your solution.
 fn main() {
     // get standard input stream
@@ -28,19 +28,17 @@ fn main() {
     let number_of_names: i32 = lines[0].parse().unwrap();
     
     /*Create mutable lists for names and surname */
-    let mut full_names: Vec<String> = Vec::new();
+    let mut full_names: HashSet<String> = HashSet::new();
 
     let mut full_name:String = lines[1].clone() + " " + &lines[1 + number_of_names as usize].clone();
-    full_names.push(full_name);
+    full_names.insert(full_name);
 
     let mut lines_marker: i32 = 2;
 
     /*code for iterate through names, and controlling both lists of spoken name and surname are unique */
     while lines_marker <= number_of_names {
         full_name = lines[lines_marker as usize].clone() + " " + &lines[lines_marker as usize + number_of_names as usize].clone();
-        if !full_names.contains(&full_name) {
-            full_names.push(full_name);
-        }
+        full_names.insert(full_name);
         lines_marker += 1;
     }
 
